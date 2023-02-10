@@ -28,11 +28,17 @@ create <object class>
 So the classes that we manage are:
 
 i. BaseModel
+
 ii. User
+
 iii. Amenity
+
 iv. City
+
 v. Place
+
 vi. State
+
 vii. Review
 
 Capital letters have to be taken care of when a class is called.
