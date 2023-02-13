@@ -46,3 +46,5 @@ Capital letters have to be taken care of when a class is called.
 HOW TO USE IT?
 
 EXAMPLES
+:set ts=4
+:set shiftwidth=4
