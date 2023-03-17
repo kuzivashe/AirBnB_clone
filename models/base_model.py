@@ -44,7 +44,7 @@ class BaseModel:
         Saves the object
         """
         value = datetime.now()
-        setattr(self.'updated_at', value)
+        setattr(self, 'updated_at', value)
         models.storage.save()
 
     def to_dict(self):
