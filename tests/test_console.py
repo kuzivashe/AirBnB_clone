@@ -45,22 +45,22 @@ class TestUser(unittest.TestCase):
         """When press enter no action has to be executed"""
         with patch('sys.stdout', new=StringIO()) as f:
             HBNBCommand().onecmd("\n")
-        self.assertEqual(f.getValue(), '')
+        self.assertEqual(f.getvalue(), '')
         with patch('sys.stdout', new=StringIO()) as f:
             HBNBCommand().onecmd("            \n")
-        self.assertEqual(f.getValue(), '')
+        self.assertEqual(f.getvalue(), '')
 
     def test_wrong_command(self):
         """When press random words no action has to be executed"""
         with patch('sys.stdout', new=StringIO()) as f:
             HBNBCommand().onecmd("daasdas")
-        self.assertEqual(f.getValue(), '*** unknown syntax: daasdas\n')
+        self.assertEqual(f.getvalue(), '*** unknown syntax: daasdas\n')
 
     def test_help_with_args(self):
         """test if all the docstring were written"""
         with patch('sys.stdout', new=StringIO()) as f:
             HBNBCommand().onecmd("help quit")
-        self.assertEqual(f.getValue(), 'Quit command to exit the program\n\n')
+        self.assertEqual(f.getvalue(), 'Quit command to exit the program\n\n')
 
     def test_command_with_spaces(self):
         """Despite spaces the command has to be executed"""
@@ -119,15 +119,15 @@ class TestUser(unittest.TestCase):
         self.assertEqual(f.getvalue(), '** class doesn\'t exist **')
         with patch('sys.stdout', new=StringIO()) as f:
             HBNBCommand().onecmd("create")
-        self.assertEqual(f.getValue(), '** class name missing **\n')
+        self.assertEqual(f.getvalue(), '** class name missing **\n')
         with patch('sys.stdout', new=StringIO()) as f:
             HBNBCommand().onecmd("create BaseModel")
-        self.assertRegex(f.getValue(), '^[0-9a-f]{8}-[0-9a-f]{4}-[1-5]'
+        self.assertRegex(f.getvalue(), '^[0-9a-f]{8}-[0-9a-f]{4}-[1-5]'
                                        '[0-9a-f]{3}-[89ab][0-9a-f]{3}-'
                                        '[0-9a-f]{12}$')
         with patch('sys.stdout', new=StringIO()) as f:
             HBNBCommand().onecmd("create User")
-        self.assertRegex(f.getValue(), '^[0-9a-f]{8}-[0-9a-f]{4}-[1-5]'
+        self.assertRegex(f.getvalue(), '^[0-9a-f]{8}-[0-9a-f]{4}-[1-5]'
                                        '[0-9a-f]{3}-[89ab][0-9a-f]{3}-'
                                        '[0-9a-f]{12}$')
 
