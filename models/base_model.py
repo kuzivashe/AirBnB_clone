@@ -55,7 +55,7 @@ class BaseModel:
         var = self.__dict__
         for elem in var:
             if elem == 'created_at' or elem == 'updated_at':
-                new[elem] == var[elem].isoformat()
+                new[elem] = var[elem].isoformat()
             else:
                 new[elem] = var[elem]
         new['__class__'] = self.__class__.__name__
