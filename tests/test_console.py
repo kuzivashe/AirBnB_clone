@@ -144,7 +144,7 @@ class TestUser(unittest.TestCase):
 
         with patch('sys.stdout', new=StringIO()) as f:
             HBNBCommand().onecmd("show" + "User" + id)
-        self.assertNotNone(f.getvalue())
+        self.assertIsNotNone(f.getvalue())
         with patch('sys.stdout', new=StringIO()) as f:
             HBNBCommand().onecmd("show")
         self.assertEqual(f.getvalue(), '** class name missing **\n')
