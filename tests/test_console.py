@@ -106,7 +106,7 @@ class TestUser(unittest.TestCase):
             HBNBCommand().onecmd("count")
         self.assertEqual(f.getvalue(), '0\n')
         with patch('sys.stdout', new=StringIO()) as f:
-            HBNBCommand().onecmd("User.count id")
+            HBNBCommand().onecmd("count id")
         self.assertEqual(f.getvalue(), '0\n')
         with patch('sys.stdout', new=StringIO()) as f:
             HBNBCommand().onecmd("count BaseModel id")
