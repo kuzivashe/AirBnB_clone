@@ -282,5 +282,5 @@ class TestUser(unittest.TestCase):
         self.assertEqual(f.getvalue(), '')
 
 
-if __name__ = '__main__':
+if __name__ == '__main__':
     unittest.main()
