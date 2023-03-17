@@ -122,10 +122,14 @@ class TestUser(unittest.TestCase):
         self.assertEqual(f.getValue(), '** class name missing **\n')
         with patch('sys.stdout', new=StringIO()) as f:
             HBNBCommand().onecmd("create BaseModel")
-        self.assertRegex(f.getValue(), '^[0-9a-f]{8}-[0-9a-f]{4}-[1-5]''[0-9a-f]{3}-[89ab][0-9a-f]{3}-''[0-9a-f]{12}$')
+        self.assertRegex(f.getValue(), '^[0-9a-f]{8}-[0-9a-f]{4}-[1-5]'
+                                       '[0-9a-f]{3}-[89ab][0-9a-f]{3}-'
+                                       '[0-9a-f]{12}$')
         with patch('sys.stdout', new=StringIO()) as f:
             HBNBCommand().onecmd("create User")
-        self.assertRegex(f.getValue(), '^[0-9a-f]{8}-[0-9a-f]{4}-[1-5]''[0-9a-f]{3}-[89ab][0-9a-f]{3}-''[0-9a-f]{12}$')
+        self.assertRegex(f.getValue(), '^[0-9a-f]{8}-[0-9a-f]{4}-[1-5]'
+                                       '[0-9a-f]{3}-[89ab][0-9a-f]{3}-'
+                                       '[0-9a-f]{12}$')
 
     def test_show(self):
         """Validate show in both ways"""
@@ -209,7 +213,8 @@ class TestUser(unittest.TestCase):
         self.assertNotEqual(f.getvalue(), '')
         with patch('sys.stdout', new=StringIO()) as f:
             HBNBCommand().onecmd("BaseModel.all(ss)")
-        self.assertEqual(f.getvalue(), '*** Unknown syntax: BaseModel.all(ss)\n')
+        self.assertEqual(f.getvalue(),
+                         '*** Unknown syntax: BaseModel.all(ss)\n')
         with patch('sys.stdout', new=StringIO()) as f:
             HBNBCommand().onecmd("ssss.all()")
         self.assertEqual(f.getvalue(), '** class doesn\'t exist **\n')
@@ -268,7 +273,8 @@ class TestUser(unittest.TestCase):
             HBNBCommand().onecmd("User.update(\"{}\", \'name\')".format(id))
         self.assertEqual(f.getvalue(), '** value missing **\n')
         with patch('sys.stdout', new=StringIO()) as f:
-            HBNBCommand().onecmd("User.update(\"{}\", \'name\', \"Betty\")".format(id))
+            HBNBCommand()
+            .onecmd("User.update(\"{}\", \'name\', \"Betty\")".format(id))
         self.assertEqual(f.getvalue(), '')
         with patch('sys.stdout', new=StringIO()) as f:
             a = "User.update(\"{}\", \'name\')"
