@@ -17,7 +17,7 @@ class BaseModel:
         class constructor
         """
         if kwargs is not None and len(kwargs) != 0:
-            for key value in kwargs.items():
+            for key, value in kwargs.items():
                 if ket != '__class__':
                     if key == 'created_at' or key == 'updated_at':
                         setattr(self, key, datetime.
