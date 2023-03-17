@@ -17,7 +17,8 @@ from models.review import Review
 import models
 import json
 
-classes = {'BaseModel': BaseModel, 'User': User, 'State': State, 'City': City, 'Amenity': Amenity, 'Place': Place, 'Review': Review}
+classes = {'BaseModel': BaseModel, 'User': User, 'State': State,
+           'City': City, 'Amenity': Amenity, 'Place': Place, 'Review': Review}
 
 
 class HBNBCommand(cmd.Cmd):
@@ -71,7 +72,8 @@ class HBNBCommand(cmd.Cmd):
                 print("** class doesn't exist **")
 
     def do_destroy(self, args):
-        """Destroy the instance of a given class - Usage: Destroy <classname> <id>\n"""
+        """Destroy the instance of a given class -
+        Usage: Destroy <classname> <id>\n"""
         if args is None or len(args) == 0:
             print("** class name missing **")
         else:
@@ -107,18 +109,19 @@ class HBNBCommand(cmd.Cmd):
                     if aux['__class__'] == line[0]:
                         objList.append(str(objects[elem]))
                 print(objList)
-            except:
+            except Exception:
                 print("** class doesn't exist **")
 
     def do_update(self, args):
-        """Update or set att in an instance - Usage: update <classname> <id> <att_name> <att_value>\n"""
+        """Update or set att in an instance -
+        Usage: update <classname> <id> <att_name> <att_value>\n"""
         line = shlex.split(args)
         if len(line) == 0:
             print("** class name missing **")
         else:
             try:
                 eval(str(line[0]))
-            except:
+            except Exception:
                 print("** class doesn't exist **")
                 return
             if len(line) == 1:
