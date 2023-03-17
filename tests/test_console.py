@@ -277,6 +277,9 @@ class TestUser(unittest.TestCase):
             .onecmd("User.update(\"{}\", \'name\', \"Betty\")".format(id))
         self.assertEqual(f.getvalue(), '')
         with patch('sys.stdout', new=StringIO()) as f:
-            a = "User.update(\"{}\", \'name\')"
-            HBNBCommand().onecmd("")
-        self.assertEqual(f.getvalue(), '** class doesn\'t exist **\n')
+            a = "User.update(\"{}\", \'name\', \"Betty\")".format(id)
+            HBNBCommand().onecmd(a)
+        self.assertEqual(f.getvalue(), '')
+
+if __name__ = '__main__':
+    unittest.main()
