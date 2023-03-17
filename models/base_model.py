@@ -58,5 +58,5 @@ class BaseModel:
                 new[elem] == var[elem].isoformat()
             else:
                 new[elem] = var[elem]
-        new['__class__'] self.__class__.__name__
+        new['__class__'] = self.__class__.__name__
         return (new)
