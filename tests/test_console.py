@@ -98,10 +98,10 @@ class TestUser(unittest.TestCase):
         self.assertEqual(f.getvalue(), '0\n')
         with patch('sys.stdout', new=StringIO()) as f:
             HBNBCommand().onecmd("User.count(d)")
-        self.assertEqual(f.getvalue(), '***Unknown syntax: User.count(d)\n')
+        self.assertEqual(f.getvalue(), '*** Unknown syntax: User.count(d)\n')
         with patch('sys.stdout', new=StringIO()) as f:
             HBNBCommand().onecmd("User.count()d")
-        self.assertEqual(f.getvalue(), '***Unknown syntax: User.count()d\n')
+        self.assertEqual(f.getvalue(), '*** Unknown syntax: User.count()d\n')
         with patch('sys.stdout', new=StringIO()) as f:
             HBNBCommand().onecmd("count")
         self.assertEqual(f.getvalue(), '0\n')
