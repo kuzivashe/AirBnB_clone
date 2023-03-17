@@ -66,19 +66,19 @@ class TestUser(unittest.TestCase):
         """Despite spaces the command has to be executed"""
         with patch('sys.stdout', new=StringIO()) as f:
             HBNBCommand().onecmd("     help        quit")
-        self.assertEqual(f.getValue(), 'Quit command to exit the program\n\n')
+        self.assertEqual(f.getvalue(), 'Quit command to exit the program\n\n')
 
     def test_quit(self):
         """test quit"""
         with patch('sys.stdout', new=StringIO()) as f:
             HBNBCommand().onecmd("quit")
-        self.assertEqual(f.getValue(), '')
+        self.assertEqual(f.getvalue(), '')
 
     def test_EOF(self):
         """test EOF"""
         with patch('sys.stdout', new=StringIO()) as f:
             HBNBCommand().onecmd("EOF")
-        self.assertEqual(f.getValue(), '\n')
+        self.assertEqual(f.getvalue(), '\n')
 
     def test_count(self):
         """Validate count method"""
