@@ -21,7 +21,7 @@ class FileStorageTest(unittest.TestCase):
     def setUpClass(cls):
         """ Setup an instance for test"""
         cls.my_model = BaseModel()
-        cls.my_model.name = "Holberton"
+        cls.my_model.name = "My First Model"
         cls.my_model.my_number = 89
 
     @classmethod
@@ -64,7 +64,7 @@ class FileStorageTest(unittest.TestCase):
         storage = FileStorage()
         all_objects = storage.all()
         my_model2 = State()
-        my_model2.name = "Bogota D.C."
+        my_model2.name = "My Second Model"
         storage.new(my_model2)
         self.assertEqual(type(all_objects), dict)
         self.assertIsNotNone(all_objects)
